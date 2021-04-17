@@ -17,6 +17,8 @@ Tecnologias:
 
 Você pode visualizar a aplicação em funcionamento pela url abaixo:
 
+https://evertoncerqueira.github.io/querofrontend/
+
 
 ---
 
