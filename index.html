@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+	<link rel="manifest" href="assets/images/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#18ACC4">
+	<meta name="theme-color" content="#18ACC4">
+	<title>Quero Bolsa - Bolsas Favoritas</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/dist/site.css">
+</head>
+<body>
+	<header>
+		<div class="center">
+			<nav class="nav-left">
+				<div class="item">
+					<a href="" title="Como Funciona">
+						<i class="fas fa-info-circle"></i>
+						<span class="text-desktop">
+							Como Funciona
+						</span>	
+						<span class="text-mobile">
+							Como Funciona
+						</span>	
+					</a>
+						
+				</div>
+				<div class="item">
+					<a href="https://api.whatsapp.com/send?phone=558001232222&text=quero%20Bolsa" title="Envie mensagem ou ligue">
+						
+						<i class="fab fa-whatsapp"></i>
+						
+						0800 123 2222
+						<span>Envie mensagem ou ligue</span>
+					</a>
+				</div>
+			</nav>
+			<a href="index.html" class="logo">
+				<picture>
+					<source srcset="assets/images/logo-quero-bolsa.png" media="(max-width: 768px)">
+					<source srcset="assets/images/logo-quero-bolsa.png">
+					<img srcset="assets/images/logo-quero-bolsa.png" alt="Logo Quero Bolsa">
+				</picture>
+			</a>
+			<div class="login-box">
+				<span class="text-desktop"> Nome Sobrenome</span> 
+				<span class="text-mobile"> Conta</span> 
+				<i class="fas fa-user-circle"></i>	
+			</div>
+		</div>
+		<section class="menu-section">
+			<div class="center">
+				<nav>
+					<ul>
+						<li><a href="#" title="Minha Conta">Minha Conta</a></li>
+						<li><a href="#" title="Pré Matrículas">Pré Matrículas</a></li>
+						<li><a href="#" title="Bolsas Favoritas" class="active">Bolsas Favoritas</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+	</header>
+	<section class="content" id="app">
+		<template>
+			<div class="center">
+				<ul class="breadcrumbs">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="index.html" title="Home">Minha Conta</a></li>
+					<li>Bolsas Favoritas</a></li>
+				</ul>
+	
+				<h1>Bolsas Favoritas</h1>
+				<p>Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponiveis</p>
+				<nav class="semestres">
+					<a href="#" class="active" title="Todos os semestres">Todos os semestres</a>
+					<a href="#" class="">2º semestre de 2019</a>
+					<a href="#" class="">1º semestre de 2019</a>
+				</nav>
+	
+				<section class="bolsas">
+					<div class="item btn-add">
+						<a href="" @click.prevent="modalOpen=true;">
+							<i class="fas fa-plus-circle"></i>
+							<h2>Adicionar Bolsa</h2>
+							<p>Clique para adicionar bolsas de cursos do seu interesse</p>
+						</a>
+					</div>
+					<div class="item" v-for="faculdade, key in escolhidas">
+						<a href="">
+							
+							<img :src="faculdade.university.logo_url" :alt="faculdade.university.name">
+							<h3>{{faculdade.university.name}}</h3>
+							<h4>{{faculdade.course.name}}</h4>
+							<div class="score">
+								<strong>{{faculdade.university.score}}</strong>
+								<ul class="stars">
+									<li>
+										<i v-if="faculdade.university.score>=1" class="fas fa-star"></i>
+										<i v-else-if="faculdade.university.score>1 && faculdade.university.score < 2" class="fas fa-star-half-alt"></i>
+										<i v-else class="far fa-star"></i>
+									</li>
+									<li>
+										<i v-if="faculdade.university.score > 2.01 && faculdade.university.score < 3" class="fas fa-star-half-alt"></i>
+										<i v-else-if="faculdade.university.score>=2" class="fas fa-star"></i>
+										
+										<i v-else class="far fa-star"></i>
+									</li>
+									<li>
+										<i v-if="faculdade.university.score > 3.01 && faculdade.university.score < 4" class="fas fa-star-half-alt"></i>
+										<i v-else-if="faculdade.university.score>=3" class="fas fa-star"></i>
+										<i v-else class="far fa-star"></i>
+									</li>
+									<li>
+										<i v-if="faculdade.university.score > 4.01 && faculdade.university.score < 5" class="fas fa-star-half-alt"></i>
+										<i v-else-if="faculdade.university.score>=4" class="fas fa-star"></i>
+										<i v-else class="far fa-star"></i>
+									</li>
+									<li>
+										<i v-if="faculdade.university.score > 5.01 && faculdade.university.score < 6" class="fas fa-star-half-alt"></i>
+										<i v-else-if="faculdade.university.score>=5" class="fas fa-star"></i>
+										<i v-else class="far fa-star"></i>
+
+									</li>
+								</ul>
+							</div>
+							<div class="periodo">
+								{{faculdade.course.kind}}
+								<span>{{faculdade.course.shift}}</span>
+							</div>
+							<p class="inicio">
+								Inicio das aulas em: {{faculdade.start_date}}
+							</p>
+							<div class="valores" v-if="faculdade.enabled">
+								<strong>Mensalidade com o Quero Bolsa: </strong>
+								<del>R$ {{faculdade.full_price}}</del>
+								<span class="valor"><strong>R${{faculdade.price_with_discount}}</strong> /mes</span>
+							</div>
+							<div class="valores" v-else>
+								<strong>Bolsa indisponível</strong>
+								<p>
+									Entre em contato com nosso atendimento para saber mais
+								</p>
+							</div>
+							<div class="botoes">
+								<button class="btn-cancelar" @click.prevent="excluir(key);">Excluir</button>
+								<button  v-if="faculdade.enabled" class="btn-add" @click.prevent="javascript:;"> Ver oferta</button>
+								<button  v-else lass="btn-add" @click.prevent="javascript:;" disabled="disabled"> Indisponível</button>
+							</div>
+							
+						</a>
+					</div>
+				</section>
+			</div>
+			<div :class="['modal',{ 'active': modalOpen === true }]" id="AddBolsa">
+				<label class="modal__bg" for="modal-1"  @click.prevent="modalOpen=false;"></label>
+				<div class="modal__inner">
+					<label class="modal__close" for="modal-1"  @click.prevent="modalOpen=false;"></label>
+					<h2>Adicionar Bolsa</h2>
+					<p>Filtre e adicione as bolsas de seu interesse.</p>
+					<form class="filtros">
+						<div class="col-2">
+							<label class="titulo" for="cidade">Selecione sua Cidade</label>
+							<select name="" id="" v-model="filtros.cidade" @change="filtrar();">
+								<option value="">Selecione</option>
+								<option v-for="cidade in cidades" :value="cidade">{{cidade}}</option>
+	
+							</select>
+						</div>
+						<div class="col-2">
+							<label class="titulo" for="curso">Selecione o curso de sua Preferência</label>
+							<select name="" id="" v-model="filtros.curso" @change="filtrar();">
+								<option value="">Selecione</option>
+								<option v-for="curso in cursos" :value="curso">{{curso}}</option>
+	
+							</select>
+						</div>
+						<div class="col-2">
+							<span class="titulo-filtro" >Como você quer estudar?</span>
+							<input type="checkbox"  id="Presencial" value="Presencial" v-model="filtros.tipo" @change="filtrar();">
+							 <label for="Presencial">Presencial</label>
+							<input type="checkbox" id="distância" value="EaD" v-model="filtros.tipo" @change="filtrar();">
+							 <label for="distância">A distância</label>
+						</div>
+						<div class="col-2">
+							<label class="titulo" for="curso">Até quanto pode pagar?
+								<span>R${{filtros.valor}}</span>
+							</label>
+							<input  type="range" v-model="filtros.valor" value='' max='10000' @change="filtrar();">
+							
+						</div>
+					</form>
+					<div class="resultado">
+						<div class="cabecalho">
+							<h3>Resultado:</h3>
+							<p class="ordenar">
+								Ordenar por <span>Nome da Faculdade <i class="fas fa-chevron-down"></i></span>
+							</p>
+						</div>
+						<ul class="lista">
+							<i v-if="carregando" class="fas fa-spinner"></i>
+							<li v-for="faculdade in resultado">
+								<div class="coluna">
+									<input type="checkbox" v-model="selecionadas" :value="faculdade">
+								</div>
+								<div class="coluna logo">
+									<img :src="faculdade.university.logo_url" :alt="faculdade.university.name">
+								</div>
+								<div class="coluna nome">
+									<h4>{{faculdade.course.name}}</h4>
+									<span>{{faculdade.course.level}} {{faculdade.course.kind}}</span>
+								</div>
+								<div class="coluna infos">
+									<p>
+										Bolsa de <strong>{{faculdade.discount_percentage}}%</strong> <br>
+										<strong>R$ {{faculdade.price_with_discount}}/mês</strong>
+									</p>
+								</div>
+							</li>
+						</ul>
+						<div class="botoes">
+							<button class="btn-cancelar" @click="cancelar();"> Cancelar</button>
+							<button  class="btn-add" @click="adicionar();" :disabled="selecionadas.length == 0"> Adicionar bolsa(s)</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</template>
+
+	</section>
+	<footer>
+		<div class="center">
+			<ul class="itens-footer">
+				<li><a href="">
+					<i class="fab fa-whatsapp"></i>
+					<div>
+						0800 123 2222
+						<span>Seg - Sex 8h-22h</span>
+					</div>
+					
+					</a>
+				</li>
+				<li><a href="">
+					<i class="far fa-comment"></i>
+					<div>
+						Chat ao vivo
+						<span>Seg - Sex 8h-22h</span>
+					</div>
+					
+				</a>
+				</li>
+				<li><a href="">
+					<i class="far fa-envelope"></i>
+					<div>
+						Mande um E-mail
+						<span>Respondemos rapidinho</span>
+					</div>
+					
+				</a>
+				</li>
+				<li><a href="">
+					<i class="far fa-question-circle"></i>
+					<div>
+						Central de Ajuda
+						<span>Encontre todas as respostas</span>
+					</div>
+					
+				</a>
+				</li>
+			</ul>
+		</div>
+		<div class="copyrights">
+			<div class="center">
+				<p> feito com <i class="far fa-heart"></i> pela Quero Educação</p>
+			</div>
+		</div>
+	</footer>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js"></script>
+	<script src="assets/js/componente.js"></script>
+</body>
+</html>
