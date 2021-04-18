@@ -14,7 +14,6 @@ $cinza:#FBFBFB;
 	box-sizing: border-box;
 }
 body{
-	background: url("../../images/home-mobile.png") no-repeat scroll center bottom transparent;
   background-color:$cinza;
   font-family: 'Roboto', sans-serif;
 
@@ -679,6 +678,8 @@ footer{
   img{
 	  max-width:100%;height:auto;
   }
+  nav.menu-mobile{display: none;}
+
   @media screen and (max-width: 768px) {
 	  
 	.modal__inner {
@@ -818,9 +819,20 @@ footer{
 			width: 76px;
 			.item{
 				width:100%;
-				div{
-					
+				a{
+					padding:0;
+					text-align: center;
+					span{
+						font-size: 1.3em;
+					}
+					i{
+						display: block;
+						margin: auto auto 5px auto;
+						font-size: 30px;
+						text-align: center;
+					}
 				}
+
 				&:nth-child(2){
 					display:none;
 				}
@@ -839,19 +851,85 @@ footer{
 			float: right;
 			width: 75px;
 			margin: 0;
+			position: relative;
+    		padding-top: 38px;
+			border-left: 1px solid #eeefef;
+			i.fas{
+				display: block;
+				margin: auto auto 5px auto;
+				font-size: 32px;
+				text-align: center;
+				position:absolute;
+				top:0;
+				left:0;
+				right:0;
+				margin:auto;
+			}
 			span{
-				content:"Conta";
+				padding-top: 0;
+    			width: 100%;
+				text-align: center;
 			}
 		}
 		.menu-section{
-			background: transparent;
+			margin-top: 18px;
+    		padding-bottom: 10px;
 			nav{
+				display: inline-block;
+    			width: 50%;
 				ul{
 					li{
 						&:nth-child(2), &:nth-child(3){
 							display: none;
 						}
 					}
+				}
+			}
+			nav.menu-mobile{
+				display:inline-block;
+				width:48%;
+				text-align: right;
+				ul{
+					padding:0;
+					display:block;
+					li{
+						position:relative;
+						input{
+							display: none;
+						}
+						a{    
+							padding-right: 0;
+							color:#FFFFFF;
+							&:hover,&:active{
+								background:$azul;
+							}
+							i{
+								color:#FFFFFF;
+								font-size: 24px;
+								float: right;
+								margin-left: 15px;
+							}
+						}
+					}
+				}
+				.submenu{
+					display:none;
+					position: absolute;
+					bottom: -153%;
+					
+					width: 150px;
+					right: 0;
+					background:$azul;
+					li{
+						border-bottom:1px solid #FFFFFF;
+						display:block;
+						a{
+							padding:5px;
+						}
+					}
+				}
+				#toggle:checked ~ .submenu {
+					display:block
 				}
 			}
 		}
@@ -955,6 +1033,43 @@ footer{
 			}
 
 		}
+		.modal__inner{
+			width:100%;
+			.filtros .col-2:last-of-type{
+				margin-top:40px;
+
+			}
+			.resultado .cabecalho p.ordenar span{
+				display: block;
+    			margin-top: 7px;
+			}
+			.resultado{
+				ul.lista{
+					li{
+						padding: 12px 0;
+						.coluna{
+							&.logo{
+								width: 18%;
+								margin-left: 4%;
+								min-height: initial;
+							}
+							&.nome{
+								width: 60%;
+								min-height: initial;
+							}
+							&.infos{
+								margin-left: 34%;
+								width: 650%;
+								text-align: left;
+								margin-top: -21px;
+								min-height: initial;
+							
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	footer{
 		margin-bottom: 336px;
@@ -963,20 +1078,38 @@ footer{
 			width: 100%;
 		}
 		ul.itens-footer{
+			padding: 20px 0 0 0;
+			text-align:left;
 			li{
-				width:40%;
+				width: 32%;
 				margin-right:0;
-				border-right:1px solid $azul;
+				border-right:2px solid $azul;
+				text-align:center;
+				padding: 15px 0;
+				min-height: 115px;
+				a i{
+					width: auto;
+					display:block;
+					margin:0 auto 10px auto;
+				}
 				&:first-of-type{
 					width:100%;
-					border-bottom:1px solid $azul;
+					border-bottom:2px solid $azul;
+					padding-bottom:20px;
 					i{
 						float: left;
+						width: 31%;
 					}
 					div{
 						float: left;
+						text-align:left;
     					width: 60%;
 						font-weight: bold;
+						span{
+							display:block;
+							font-weight: normal;
+							margin-top: 8px;
+						}
 						
 					}
 				}
@@ -986,7 +1119,7 @@ footer{
 			}
 		}
 	}
-	
+
 
 }
 @media screen and (max-width: 480px) {
