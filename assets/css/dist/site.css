@@ -1012,7 +1012,6 @@ nav.menu-mobile {
   }
 
   footer {
-    margin-bottom: 336px;
     font-size: 20px;
   }
   footer .center {
@@ -1057,5 +1056,14 @@ nav.menu-mobile {
   }
   footer ul.itens-footer li:last-of-type {
     border-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  section.content section.bolsas .item a div.botoes button {
+    padding: 10px 30px;
+  }
+
+  section.content .modal__inner .resultado div.botoes button {
+    padding: 15px 20px;
   }
 }
