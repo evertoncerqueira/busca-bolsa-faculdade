@@ -1,7 +1,8 @@
-**Teste de Front End da Quero Educação**
+**Front-end de busca de bolsas para faculdade**
 
 Criação do CSS e HTML do layout fornecido;
 Criação das funcionalidades conforme descrição.
+Projeto realizado para demonstrar conhecimento em HTML,CSS e VueJS
 
 Tecnologias:
 1. HTML
@@ -17,14 +18,8 @@ Tecnologias:
 
 Você pode visualizar a aplicação em funcionamento pela url abaixo:
 
-https://evertoncerqueira.github.io/querofrontend/
+https://evertoncerqueira.github.io/busca-bolsa-faculdade/
 
-
----
-
-## Bolsas favoritas
-
-O Querobolsa.com é um marketplace de bolsas de estudo, que já ajudou milhares de alunos a escolher e ingressar no curso ideal, por um preço que podem pagar. A sua missão é fazer uma página onde o aluno possa filtrar bolsas de estudo de seu interesse e adicionar à uma lista de bolsas favoritas.
 
 ---
 
